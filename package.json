@@ -9,5 +9,9 @@
   "dependencies": {
     "optimist": ">=0.6.0"
   },
-  "engine": "node 0.10.20"
+  "bin": {
+    "ltsweb": "./bin/ltsweb"
+  },
+  "preferGlobal": true,
+  "engines": "node 0.10.20"
 }
