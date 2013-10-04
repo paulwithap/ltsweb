@@ -23,17 +23,21 @@ exports.start = function () {
     var child;
 
     if (env && env.length && action && action.length) {
-        var command = 'NODE_ENV=' + environments[argv.environment] + ' /var/www/www-node/node_modules/.bin/forever ' + action + ' /var/www/www-node/app.js';
-        if (environments[argv.environment]) {
-            child = exec(command,
-                function (error, stdout, stderr) {
-                    console.log(stdout);
-                    console.log(stderr);
+        var command = 'NODE_ENV=' + env + ' /var/www/www-node/node_modules/.bin/forever ' + action + ' /var/www/www-node/app.js';
 
-                    if (error !== null) {
-                        console.log('error: ' + error);
-                    }
-            });
-        }
+        child = exec(command,
+            function (error, stdout, stderr) {
+                console.log('STDOUT: ' + stdout);
+                console.log('STDERR: ' + stderr);
+
+                if (error !== null) {
+                    console.log('error: ' + error);
+                }
+        });
+
+        child.on('exit', function (code, signal) {
+            console.log('CHILD exited with code: ' + code);
+            console.log('Exit signal: ' + signal);
+        });
     }
 };
