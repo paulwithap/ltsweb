@@ -20,15 +20,21 @@ exports.start = function () {
 
     var action = argv._;
 
-    var child;
+    var currTime = new Date();
 
     if (env && env.length && action && action.length) {
-        var command = 'NODE_ENV=' + env + ' /var/www/www-node/node_modules/.bin/forever ' + action + ' /var/www/www-node/app.js';
+        var command, child;
+
+        if (action === 'start') {
+            command = 'NODE_ENV=' + env + ' /var/www/www-node/node_modules/.bin/forever ' + action +
+                          ' -l ' + '/var/www/www-node/logs/forever-' + currTime.toISOString() +
+                          ' /var/www/www-node/app.js';
+        }
 
         child = exec(command,
             function (error, stdout, stderr) {
-                console.log('STDOUT: ' + stdout);
-                console.log('STDERR: ' + stderr);
+                console.log(stdout);
+                console.log(stderr);
 
                 if (error !== null) {
                     console.log('error: ' + error);
