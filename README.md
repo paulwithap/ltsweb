@@ -10,4 +10,4 @@
 
 ## Usage
 
-    ltsweb [start|stop]
+    ltsweb --environment [development|test|production] [start|stop]
