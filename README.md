@@ -11,3 +11,7 @@
 ## Usage
 
     ltsweb --environment [development|test|production] [start|stop]
+
+## Editing
+
+If you need to make changes to the script, you'll have to uninstall with `sudo npm uninstall -g ltsweb` pull the changes, then reinstall. Yeah, I know, it's stupid.
