@@ -7,11 +7,12 @@
     "email": "paul@lettuceapps.com"
   },
   "dependencies": {
-    "optimist": ">=0.6.0"
+    "optimist": ">=0.6.0",
+    "forever-monitor": "~1.2.3"
   },
   "bin": {
     "ltsweb": "./bin/ltsweb"
   },
   "preferGlobal": true,
-  "engines": "node 0.10.20"
+  "engines": {"node": "0.10.20"}
 }

@@ -1,3 +1,4 @@
+
 #!/usr/bin/env node
 
 exports.start = function () {
@@ -14,6 +15,7 @@ exports.start = function () {
         'dev':         'development',
         'development': 'development',
         'test':        'test',
+        'staging':     'staging',
         'prod':        'production',
         'production':  'production'
     };
